@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Logo } from './Logo';
 import { siteConfig } from '../config/site';
+import { openAppContent } from '../content/openApp';
 import './Footer.css';
 
 export const Footer: React.FC = () => {
@@ -51,6 +52,25 @@ export const Footer: React.FC = () => {
         <div className="tm-footer-bottom">
           <div>
             Built for <strong>{siteConfig.institution}</strong> · All rights reserved.
+            {siteConfig.features?.openAppButton && (
+              <>
+                {' · '}
+                <a
+                  href={siteConfig.appUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tm-footer-contact"
+                  onClick={() => {
+                    window.dispatchEvent(
+                      new CustomEvent('open-app', { detail: { placement: 'footer' } })
+                    );
+                  }}
+                >
+                  {openAppContent.footer.label}
+                  <span className="open-app-sr-only"> (opens in a new tab)</span>
+                </a>
+              </>
+            )}
           </div>
           <div>
             Need help? Contact{' '}

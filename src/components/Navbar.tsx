@@ -3,6 +3,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Logo } from './Logo';
 import { Button } from './Button';
 import { useTheme } from './ThemeProvider';
+import { OpenAppButton } from './OpenAppButton';
 import { siteConfig } from '../config/site';
 import './Navbar.css';
 
@@ -117,6 +118,10 @@ export const Navbar: React.FC = () => {
           <Button variant="primary" to={siteConfig.cta.primary.to}>
             {siteConfig.cta.primary.label}
           </Button>
+
+          {siteConfig.features?.openAppButton && (
+            <OpenAppButton size="compact" placement="header" />
+          )}
         </div>
 
         {/* Mobile Hamburger Toggle Button */}
@@ -201,6 +206,14 @@ export const Navbar: React.FC = () => {
             >
               {siteConfig.cta.primary.label}
             </Button>
+
+            {siteConfig.features?.openAppButton && (
+              <OpenAppButton
+                size="large"
+                placement="header"
+                fullWidth
+              />
+            )}
           </div>
         </aside>
       )}

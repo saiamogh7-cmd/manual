@@ -17,6 +17,9 @@ import {
 import { NotFoundPage } from './NotFoundPage';
 import { siteConfig } from '../config/site';
 import { guideContent, GuideRoleKey } from '../content/guide';
+import { openAppContent } from '../content/openApp';
+import { OpenAppButton } from '../components/OpenAppButton';
+import { FloatingAppButton } from '../components/FloatingAppButton';
 import './GuideRolePage.css';
 
 const validRoles: GuideRoleKey[] = ['start', 'student', 'lead', 'mentor'];
@@ -83,7 +86,7 @@ export const GuideRolePage: React.FC = () => {
 
   return (
     <div
-      className="wrap guide-role-page"
+      className={`wrap guide-role-page ${siteConfig.features?.openAppButton ? 'open-app-page-pad' : ''}`}
       style={{
         '--guide-accent-fill': roleData.accent.fill,
         '--guide-accent-edge': roleData.accent.edge,
@@ -159,6 +162,37 @@ export const GuideRolePage: React.FC = () => {
           )}
         </div>
       </header>
+
+      {/* 5. Guide Banner: Ready to try it? */}
+      {siteConfig.features?.openAppButton && (
+        <section
+          className="guide-banner-section"
+          aria-label="Ready to try TrackMent"
+          style={{
+            backgroundColor: 'var(--bg-card)',
+            border: 'var(--border-medium) solid var(--border-line)',
+            borderRadius: 'var(--radius-lg)',
+            padding: 'var(--space-5)',
+            marginBottom: 'var(--space-6)',
+            boxShadow: 'var(--shadow-tactile-sm)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 'var(--space-4)',
+            flexWrap: 'wrap',
+          }}
+        >
+          <div style={{ maxWidth: '640px' }}>
+            <h2 style={{ fontSize: '20px', fontWeight: 800, marginBottom: 'var(--space-1)' }}>
+              {openAppContent.guideBanner.heading}
+            </h2>
+            <p style={{ margin: 0, fontSize: '15px', color: 'var(--text-mute)', lineHeight: 1.5 }}>
+              {openAppContent.guideBanner.subtext}
+            </p>
+          </div>
+          <OpenAppButton size="large" variant="primary" placement="guide-banner" />
+        </section>
+      )}
 
       {/* Small Celebratory State when all steps completed */}
       {progress.isAllDone && (
@@ -238,6 +272,11 @@ export const GuideRolePage: React.FC = () => {
                     {step.paragraphs.map((para) => (
                       <p key={para}>{para}</p>
                     ))}
+                    {siteConfig.features?.openAppButton && currentRoleId === 'start' && step.id === 'step-1' && (
+                      <div style={{ marginTop: 'var(--space-4)' }}>
+                        <OpenAppButton size="compact" variant="primary" placement="guide-start-step" />
+                      </div>
+                    )}
                   </div>
 
                   {step.tip && (
@@ -277,6 +316,39 @@ export const GuideRolePage: React.FC = () => {
         </div>
       </section>
 
+      {/* 7. Guide End Panel */}
+      {siteConfig.features?.openAppButton && (
+        <section
+          className={`guide-end-section ${progress.isAllDone ? 'guide-end-section-completed' : ''}`}
+          aria-label="Launch TrackMent"
+          style={{
+            backgroundColor: 'var(--bg-card)',
+            border: progress.isAllDone
+              ? '3px solid var(--color-brand-yellow)'
+              : 'var(--border-medium) solid var(--border-line)',
+            borderRadius: 'var(--radius-xl)',
+            padding: 'var(--space-6)',
+            margin: 'var(--space-8) 0',
+            boxShadow: progress.isAllDone ? '0 6px 0 var(--color-brand-gold-edge)' : 'var(--shadow-tactile-card)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 'var(--space-4)',
+            flexWrap: 'wrap',
+          }}
+        >
+          <div style={{ maxWidth: '600px' }}>
+            <h2 style={{ fontSize: '22px', fontWeight: 800, marginBottom: 'var(--space-2)' }}>
+              {openAppContent.guideEnd.heading}
+            </h2>
+            <p style={{ margin: 0, fontSize: '15px', color: 'var(--text-mute)', lineHeight: 1.5 }}>
+              {openAppContent.guideEnd.subtext}
+            </p>
+          </div>
+          <OpenAppButton size="large" variant="primary" placement="guide-end" />
+        </section>
+      )}
+
       {/* Previous / Next Role Navigation */}
       <nav className="guide-role-bottom-nav" aria-label="Previous and Next Role Navigation">
         <div>
@@ -306,6 +378,10 @@ export const GuideRolePage: React.FC = () => {
           )}
         </div>
       </nav>
+
+      {siteConfig.features?.openAppButton && (
+        <FloatingAppButton scrollThreshold={280} />
+      )}
     </div>
   );
 };

@@ -1,0 +1,22 @@
+/**
+ * FloatingAppButton Component Styles
+ * Strictly additive mobile floating button container.
+ * Every selector prefixed with open-app-.
+ */
+
+.open-app-floating-container {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .open-app-floating-container {
+    display: none !important;
+  }
+}
+
+/* Added to pages on mobile so floating button never covers content */
+@media (max-width: 767px) {
+  .open-app-page-pad {
+    padding-bottom: calc(52px + 2rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}

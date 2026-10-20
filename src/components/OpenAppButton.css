@@ -1,0 +1,312 @@
+/**
+ * OpenTrackMent Button Component Styles
+ * Strictly additive design system component.
+ * All class names prefixed with open-app-.
+ * Zero element/global selectors, zero resets.
+ */
+
+.open-app-btn {
+  --open-app-bg: var(--cta-fill);
+  --open-app-color: var(--cta-text);
+  --open-app-edge: var(--cta-edge);
+  --open-app-shadow: 0 4px 0 var(--open-app-edge);
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* 8px */
+  text-decoration: none;
+  text-transform: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  cursor: pointer;
+  background-color: var(--open-app-bg);
+  color: var(--open-app-color);
+  border: 2px solid var(--open-app-edge);
+  box-shadow: var(--open-app-shadow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+/* Variant: Primary */
+.open-app-variant-primary {
+  --open-app-bg: var(--cta-fill);
+  --open-app-color: var(--cta-text);
+  --open-app-edge: var(--cta-edge);
+}
+
+/* Variant: Ghost */
+.open-app-variant-ghost {
+  --open-app-bg: transparent;
+  --open-app-color: var(--cta-ghost-text);
+  --open-app-edge: var(--cta-ghost-edge);
+  background-color: transparent;
+}
+
+/* Size: Compact (header) */
+.open-app-size-compact {
+  min-height: 2.75rem; /* 44px */
+  padding: 0 1.125rem; /* 18px */
+  border-radius: 0.875rem; /* 14px */
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 800;
+  --open-app-shadow: 0 4px 0 var(--open-app-edge);
+}
+
+/* Size: Large (hero, banners, end panel) */
+.open-app-size-large {
+  height: 3.5rem; /* 56px */
+  padding: 0 1.75rem; /* 28px */
+  border-radius: 1.125rem; /* 18px */
+  font-size: 1.125rem; /* 18px */
+  font-weight: 800;
+  min-width: 13.75rem; /* 220px */
+  --open-app-shadow: 0 6px 0 var(--open-app-edge);
+}
+
+/* Size: Floating (mobile) */
+.open-app-size-floating {
+  height: 3.25rem; /* 52px */
+  padding: 0 1.25rem; /* 20px */
+  border-radius: var(--radius-full);
+  font-size: 1rem; /* 16px */
+  font-weight: 800;
+  --open-app-shadow: 0 5px 0 var(--open-app-edge), 0 8px 16px var(--cta-glow);
+}
+
+/* Floating placement */
+.open-app-placement-floating {
+  position: fixed;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  right: 1rem;
+  z-index: 95;
+}
+
+/* Full width modifier */
+.open-app-full-width {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+/* Arrow Icon */
+.open-app-icon {
+  width: 1.125rem; /* 18px */
+  height: 1.125rem;
+  flex-shrink: 0;
+  stroke-width: 2.5;
+  transition: transform var(--transition-fast);
+}
+
+.open-app-size-large .open-app-icon {
+  width: 1.25rem; /* 20px */
+  height: 1.25rem;
+}
+
+/* Labels */
+.open-app-label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.open-app-label-full {
+  display: inline;
+}
+
+.open-app-label-short {
+  display: none;
+}
+
+.open-app-label-disabled {
+  display: inline;
+}
+
+/* Screen reader only */
+.open-app-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Hover state (media hover: hover) */
+@media (hover: hover) {
+  .open-app-btn:not(.open-app-disabled):hover {
+    background-color: var(--cta-fill-hover);
+    transform: translateY(-2px);
+  }
+  
+  .open-app-variant-ghost:not(.open-app-disabled):hover {
+    background-color: var(--cta-ghost-hover-fill);
+  }
+
+  .open-app-size-compact:not(.open-app-disabled):hover {
+    box-shadow: 0 6px 0 var(--open-app-edge);
+  }
+
+  .open-app-size-large:not(.open-app-disabled):hover {
+    box-shadow: 0 8px 0 var(--open-app-edge);
+  }
+
+  .open-app-size-floating:not(.open-app-disabled):hover {
+    box-shadow: 0 7px 0 var(--open-app-edge), 0 10px 20px var(--cta-glow);
+  }
+
+  .open-app-btn:not(.open-app-disabled):hover .open-app-icon {
+    transform: translate(3px, -3px);
+  }
+}
+
+/* Active state */
+.open-app-btn:not(.open-app-disabled):active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--open-app-edge) !important;
+}
+
+.open-app-btn:not(.open-app-disabled):active .open-app-icon {
+  transform: translate(0, 0);
+}
+
+/* Focus-visible state */
+.open-app-btn:focus-visible {
+  outline: 3px solid var(--cta-focus);
+  outline-offset: 3px;
+}
+
+/* Disabled state */
+.open-app-btn.open-app-disabled {
+  background-color: var(--cta-disabled-fill) !important;
+  color: var(--cta-disabled-text) !important;
+  border: 2px dashed var(--cta-disabled-border) !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.open-app-btn.open-app-disabled .open-app-icon {
+  transform: none !important;
+}
+
+/* Large arrow nudge animation every 7s */
+@keyframes open-app-arrow-nudge {
+  0%, 88%, 100% {
+    transform: translate(0, 0);
+  }
+  92% {
+    transform: translate(3px, -3px);
+  }
+  95% {
+    transform: translate(0, 0);
+  }
+  97% {
+    transform: translate(2px, -2px);
+  }
+  99% {
+    transform: translate(0, 0);
+  }
+}
+
+.open-app-size-large.open-app-in-view:not(.open-app-disabled) .open-app-icon {
+  animation: open-app-arrow-nudge 7s infinite ease-in-out;
+}
+
+@media (hover: hover) {
+  .open-app-size-large:hover .open-app-icon {
+    animation-play-state: paused;
+  }
+}
+
+.open-app-size-large:focus-within .open-app-icon {
+  animation-play-state: paused;
+}
+
+/* Floating pulse ring twice on first appearance */
+@keyframes open-app-pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+}
+
+.open-app-size-floating:not(.open-app-disabled)::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--cta-fill);
+  pointer-events: none;
+  animation: open-app-pulse-ring 1.6s ease-out 2;
+  animation-fill-mode: forwards;
+}
+
+/* Responsive: under 640px compact and floating show "Open app" */
+@media (max-width: 640px) {
+  .open-app-size-compact {
+    padding: 0 0.875rem; /* 14px */
+  }
+
+  .open-app-size-compact .open-app-label-full,
+  .open-app-size-floating .open-app-label-full {
+    display: none;
+  }
+
+  .open-app-size-compact .open-app-label-short,
+  .open-app-size-floating .open-app-label-short {
+    display: inline;
+  }
+}
+
+/* Responsive: under 480px large is full width */
+@media (max-width: 480px) {
+  .open-app-size-large {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+/* Responsive: under 340px icon-only 44x44 */
+@media (max-width: 340px) {
+  .open-app-btn {
+    width: 2.75rem; /* 44px */
+    height: 2.75rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0;
+    gap: 0;
+    justify-content: center;
+  }
+
+  .open-app-label {
+    display: none;
+  }
+}
+
+/* Motion Accessibility: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .open-app-btn,
+  .open-app-btn:hover,
+  .open-app-btn:active,
+  .open-app-icon,
+  .open-app-btn:hover .open-app-icon,
+  .open-app-size-large.open-app-in-view .open-app-icon,
+  .open-app-size-floating::before {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

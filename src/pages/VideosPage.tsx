@@ -4,6 +4,8 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { SectionHeading, Tabs, Button, Tag, VideoPlayer, ScrollReveal } from '../components';
 import { siteConfig } from '../config/site';
 import { videosContent } from '../content/videos';
+import { openAppContent } from '../content/openApp';
+import { OpenAppButton } from '../components/OpenAppButton';
 import './VideosPage.css';
 
 export const VideosPage: React.FC = () => {
@@ -62,6 +64,14 @@ export const VideosPage: React.FC = () => {
               comingSoonTitle={videosContent.comingSoonTitle}
               comingSoonSubtitle={videosContent.comingSoonSubtitle}
             />
+            {siteConfig.features?.openAppButton && (
+              <div style={{ marginTop: 'var(--space-4)', textAlign: 'center' }}>
+                <p style={{ fontSize: '15px', color: 'var(--text-mute)', marginBottom: 'var(--space-3)' }}>
+                  {openAppContent.videoAfter.microcopy}
+                </p>
+                <OpenAppButton size="large" variant="primary" placement="video-after" />
+              </div>
+            )}
           </div>
 
           <div className="videos-info-pane">

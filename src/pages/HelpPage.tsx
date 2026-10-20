@@ -11,6 +11,8 @@ import {
 } from '../components';
 import { siteConfig } from '../config/site';
 import { helpContent, TroubleshootingItem, FaqItem } from '../content/help';
+import { openAppContent } from '../content/openApp';
+import { OpenAppButton } from '../components/OpenAppButton';
 import './HelpPage.css';
 
 export const HelpPage: React.FC = () => {
@@ -152,6 +154,14 @@ export const HelpPage: React.FC = () => {
                   defaultOpen={isSearching}
                 >
                   <p>{item.solution}</p>
+                  {siteConfig.features?.openAppButton && (item.id === 'email-domain' || item.id === 'session-expired') && (
+                    <div style={{ marginTop: 'var(--space-3)', paddingTop: 'var(--space-2)', borderTop: '1px dashed var(--border-line)' }}>
+                      <p style={{ fontSize: '14px', color: 'var(--text-mute)', marginBottom: 'var(--space-2)' }}>
+                        {openAppContent.helpLogin.microcopy}
+                      </p>
+                      <OpenAppButton size="compact" variant="primary" placement="help-login" />
+                    </div>
+                  )}
                 </Accordion>
               ))}
             </div>

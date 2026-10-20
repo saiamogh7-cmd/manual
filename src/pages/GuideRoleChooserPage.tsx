@@ -3,6 +3,8 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useGuideProgress } from '../hooks/useGuideProgress';
 import { SectionHeading, Card, Tag, Button, ProgressBar, ScrollReveal } from '../components';
 import { guideContent } from '../content/guide';
+import { siteConfig } from '../config/site';
+import { FloatingAppButton } from '../components/FloatingAppButton';
 import './GuideRoleChooserPage.css';
 
 export const GuideRoleChooserPage: React.FC = () => {
@@ -19,7 +21,7 @@ export const GuideRoleChooserPage: React.FC = () => {
   ];
 
   return (
-    <div className="wrap guide-chooser-page">
+    <div className={`wrap guide-chooser-page ${siteConfig.features?.openAppButton ? 'open-app-page-pad' : ''}`}>
       <SectionHeading
         level="h1"
         align="center"
@@ -116,6 +118,10 @@ export const GuideRoleChooserPage: React.FC = () => {
           );
         })}
       </div>
+
+      {siteConfig.features?.openAppButton && (
+        <FloatingAppButton scrollThreshold={260} />
+      )}
     </div>
   );
 };

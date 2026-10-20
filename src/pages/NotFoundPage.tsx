@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { Button, Card, StickyNote } from '../components';
+import { siteConfig } from '../config/site';
+import { OpenAppButton } from '../components/OpenAppButton';
 
 export const NotFoundPage: React.FC = () => {
   useDocumentTitle('404 — Page Not Found');
@@ -19,12 +21,23 @@ export const NotFoundPage: React.FC = () => {
         </p>
 
         <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Button variant="primary" to="/">
-            Go to home
-          </Button>
-          <Button variant="secondary" to="/guide">
-            Open Guide
-          </Button>
+          {siteConfig.features?.openAppButton ? (
+            <>
+              <OpenAppButton size="large" variant="primary" placement="404" />
+              <Button variant="secondary" to="/">
+                Go to home
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button variant="primary" to="/">
+                Go to home
+              </Button>
+              <Button variant="secondary" to="/guide">
+                Open Guide
+              </Button>
+            </>
+          )}
         </div>
       </Card>
     </div>

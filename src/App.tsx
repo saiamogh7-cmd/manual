@@ -23,6 +23,10 @@ const DevPalettePage = import.meta.env.DEV
   ? lazy(() => import('./pages/DevPalettePage'))
   : null;
 
+const DevOpenAppButtonPage = import.meta.env.DEV
+  ? lazy(() => import('./pages/DevOpenAppButtonPage'))
+  : null;
+
 const PageLoadingFallback: React.FC = () => (
   <div
     className="wrap"
@@ -54,6 +58,9 @@ export const App: React.FC = () => {
               )}
               {import.meta.env.DEV && DevPalettePage && (
                 <Route path="/dev/palette" element={<DevPalettePage />} />
+              )}
+              {import.meta.env.DEV && DevOpenAppButtonPage && (
+                <Route path="/dev/open-app-button" element={<DevOpenAppButtonPage />} />
               )}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

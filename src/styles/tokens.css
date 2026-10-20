@@ -126,6 +126,20 @@
   --transition-fast: 0.08s ease-in-out;
   --transition-normal: 0.15s ease-in-out;
   --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Open TrackMent CTA Tokens */
+  --cta-fill: #FFD64D;
+  --cta-fill-hover: #FFE066;
+  --cta-text: #3A2620;
+  --cta-edge: #3A2620;
+  --cta-focus: #5B5BD6;
+  --cta-glow: rgba(58, 38, 32, 0.25);
+  --cta-disabled-fill: #F2DFCB;
+  --cta-disabled-text: #654B41;
+  --cta-disabled-border: #8B6F63;
+  --cta-ghost-edge: #3A2620;
+  --cta-ghost-text: #3A2620;
+  --cta-ghost-hover-fill: rgba(255, 214, 77, 0.4);
 }
 
 /* System Dark Theme fallback if no data-theme explicitly set */
@@ -161,6 +175,11 @@
     --shadow-tactile-card: 0 6px 0 #422B23;
     --shadow-sticky: 2px 5px 0 rgba(0, 0, 0, 0.45);
     --shadow-phone: -14px 22px 0 -4px rgba(0, 0, 0, 0.4), -24px 34px 40px rgba(0, 0, 0, 0.6);
+    --cta-text: #2B1D18;
+    --cta-edge: #DCA828;
+    --cta-focus: #FFFDF9;
+    --cta-ghost-edge: #FFFDF9;
+    --cta-ghost-text: #FFFDF9;
     color-scheme: dark;
   }
 }
@@ -197,6 +216,11 @@
   --shadow-tactile-card: 0 6px 0 #422B23;
   --shadow-sticky: 2px 5px 0 rgba(0, 0, 0, 0.45);
   --shadow-phone: -14px 22px 0 -4px rgba(0, 0, 0, 0.4), -24px 34px 40px rgba(0, 0, 0, 0.6);
+  --cta-text: #2B1D18;
+  --cta-edge: #DCA828;
+  --cta-focus: #FFFDF9;
+  --cta-ghost-edge: #FFFDF9;
+  --cta-ghost-text: #FFFDF9;
   color-scheme: dark;
 }
 
@@ -211,5 +235,10 @@
   --bg-dot: rgba(139, 111, 99, 0.2);
   --tag-bg: #FFF3C4;
   --tag-text: #925C02;
+  --cta-text: #3A2620;
+  --cta-edge: #3A2620;
+  --cta-focus: #5B5BD6;
+  --cta-ghost-edge: #3A2620;
+  --cta-ghost-text: #3A2620;
   color-scheme: light;
 }

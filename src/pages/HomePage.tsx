@@ -24,6 +24,9 @@ import {
 } from '../components/FeatureMiniUis';
 import { siteConfig } from '../config/site';
 import { homeContent } from '../content/home';
+import { openAppContent } from '../content/openApp';
+import { OpenAppButton } from '../components/OpenAppButton';
+import { FloatingAppButton } from '../components/FloatingAppButton';
 import './HomePage.css';
 
 export const HomePage: React.FC = () => {
@@ -49,7 +52,7 @@ export const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="home-container">
+    <div className={`home-container ${siteConfig.features?.openAppButton ? 'open-app-page-pad' : ''}`}>
       {/* 1. HERO SECTION */}
       <section className="home-hero-section" aria-label="Hero Introduction">
         <div className="wrap">
@@ -61,13 +64,29 @@ export const HomePage: React.FC = () => {
               <h1 className="home-hero-title">{hero.headline}</h1>
               <p className="home-hero-subtext">{hero.subtext}</p>
               <div className="home-hero-ctas">
-                <Button variant="primary" to={siteConfig.cta.primary.to}>
-                  {siteConfig.cta.primary.label} →
-                </Button>
-                <Button variant="secondary" to={siteConfig.cta.secondary.to}>
-                  {siteConfig.cta.secondary.label}
-                </Button>
+                {siteConfig.features?.openAppButton ? (
+                  <>
+                    <OpenAppButton size="large" variant="primary" placement="hero" />
+                    <Button variant="secondary" to={siteConfig.cta.primary.to}>
+                      {siteConfig.cta.primary.label}
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button variant="primary" to={siteConfig.cta.primary.to}>
+                      {siteConfig.cta.primary.label} →
+                    </Button>
+                    <Button variant="secondary" to={siteConfig.cta.secondary.to}>
+                      {siteConfig.cta.secondary.label}
+                    </Button>
+                  </>
+                )}
               </div>
+              {siteConfig.features?.openAppButton && (
+                <p style={{ fontSize: '14px', color: 'var(--text-mute)', marginTop: 'var(--space-3)' }}>
+                  {openAppContent.hero.microcopy}
+                </p>
+              )}
             </div>
 
             <div className="home-hero-stage-wrapper">
@@ -342,20 +361,35 @@ export const HomePage: React.FC = () => {
         <div className="wrap">
           <ScrollReveal>
             <div className="home-final-cta-card">
-              <h2>{finalCta.title}</h2>
-              <p>{finalCta.subtitle}</p>
+              <h2>{siteConfig.features?.openAppButton ? openAppContent.homeFinal.headline : finalCta.title}</h2>
+              <p>{siteConfig.features?.openAppButton ? openAppContent.homeFinal.microcopy : finalCta.subtitle}</p>
               <div className="home-final-cta-buttons">
-                <Button variant="primary" to={siteConfig.cta.primary.to}>
-                  {siteConfig.cta.primary.label} →
-                </Button>
-                <Button variant="secondary" to={siteConfig.cta.secondary.to}>
-                  {siteConfig.cta.secondary.label}
-                </Button>
+                {siteConfig.features?.openAppButton ? (
+                  <>
+                    <OpenAppButton size="large" variant="primary" placement="home-final" />
+                    <Button variant="secondary" to={siteConfig.cta.primary.to}>
+                      {siteConfig.cta.primary.label} →
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button variant="primary" to={siteConfig.cta.primary.to}>
+                      {siteConfig.cta.primary.label} →
+                    </Button>
+                    <Button variant="secondary" to={siteConfig.cta.secondary.to}>
+                      {siteConfig.cta.secondary.label}
+                    </Button>
+                  </>
+                )}
               </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
+
+      {siteConfig.features?.openAppButton && (
+        <FloatingAppButton scrollThreshold={320} />
+      )}
     </div>
   );
 };
