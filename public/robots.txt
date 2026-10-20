@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /dev/
+
+Sitemap: https://trackment.rvce.edu.in/sitemap.xml

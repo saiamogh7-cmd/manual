@@ -1,0 +1,28 @@
+.tm-page-layout {
+  min-height: calc(100vh - 68px);
+  display: flex;
+  flex-direction: column;
+}
+
+.tm-page-content {
+  flex: 1;
+  animation: tm-page-fade-in 0.22s ease-out;
+}
+
+@keyframes tm-page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tm-page-content {
+    animation: none !important;
+    transform: none !important;
+  }
+}

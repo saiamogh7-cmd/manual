@@ -1,0 +1,215 @@
+/**
+ * TrackMent Design System — Tokens
+ * Source of truth for colors, spacing, borders, shadows, and radii.
+ * Strictly adheres to PROJECT_BRIEF.md and /reference/guide.html.
+ */
+
+:root {
+  /* Brand Core */
+  --color-brand-yellow: #FFD64D;
+  --color-brand-gold-edge: #DCA828;
+  --color-brand-brown: #3A2620;
+  --color-brand-taupe: #8B6F63;
+  --color-brand-cream: #FFFDF9;
+  --color-brand-line: #F2DFCB;
+  --color-brand-tag-bg: #FFF3C4;
+  --color-brand-tag-text: #925C02;
+
+  /* Logo Blob */
+  --color-blob-light: #FFE373;
+  --color-blob-mid: #FFC436;
+  --color-blob-dark: #E59500;
+  --color-blob-edge: #C27A00;
+  --color-blob-shadow: rgba(120, 70, 0, 0.3);
+
+  /* Role Accents (Fill / Edge) - High Contrast Accessible */
+  --color-role-student-fill: #107C77;
+  --color-role-student-edge: #095753;
+  --color-role-student-text: #FFFFFF;
+
+  --color-role-lead-fill: #C65116;
+  --color-role-lead-edge: #943A0C;
+  --color-role-lead-text: #FFFFFF;
+
+  --color-role-mentor-fill: #4D4DBF;
+  --color-role-mentor-edge: #34348C;
+  --color-role-mentor-text: #FFFFFF;
+
+  /* Status & Callout Tokens */
+  --color-status-success: #34A853;
+  --color-status-success-edge: #1F7A37;
+  --color-status-danger: #EA4335;
+  --color-status-danger-edge: #A7281D;
+
+  /* Callout Light Themes */
+  --callout-tip-bg: var(--color-brand-tag-bg);
+  --callout-tip-text: var(--color-brand-tag-text);
+  --callout-tip-border: var(--color-brand-line);
+
+  --callout-warning-bg: #FEECEB;
+  --callout-warning-text: #9E1F14;
+  --callout-warning-border: #F8B4AF;
+
+  --callout-success-bg: #EAF7ED;
+  --callout-success-text: #1B6A34;
+  --callout-success-border: #B2DFBD;
+
+  /* Sticky Note Font */
+  --font-handwriting: "Segoe Print", "Bradley Hand", "Chalkboard SE", "Comic Neue", cursive, system-ui;
+
+  /* Phone Mockup Tokens */
+  --phone-bezel: #24170F;
+  --phone-inner-border: #5A4132;
+  --phone-screen-bg: linear-gradient(#FFDF85, #FFEAB3 35%, #FFFDF9);
+  --phone-screen-text: #3A2620;
+
+  /* Overlay */
+  --backdrop-overlay: rgba(58, 38, 32, 0.45);
+
+  /* Light Theme (Default) */
+  --bg-primary: #FFF6DC;
+  --bg-secondary: #FFFDF9;
+  --bg-card: #FFFDF9;
+  --text-ink: #3A2620;
+  --text-mute: #74574C;
+  --border-line: #F2DFCB;
+  --bg-dot: rgba(139, 111, 99, 0.2);
+  --tag-bg: #FFF3C4;
+  --tag-text: #925C02;
+
+  /* Interactive Elements */
+  --btn-bg: var(--color-brand-yellow);
+  --btn-border: var(--color-brand-gold-edge);
+  --btn-text: var(--color-brand-brown);
+  --focus-ring: #5B5BD6;
+
+  /* Spacing Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Border Widths */
+  --border-thin: 1.5px;
+  --border-medium: 2px;
+  --border-thick: 3px;
+  --border-tactile-bottom: 5px;
+  --border-tactile-pressed: 2px;
+
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 18px;
+  --radius-2xl: 28px;
+  --radius-phone: 36px;
+  --radius-full: 9999px;
+
+  /* Tactile Shadows (Hard offset bottom edge, zero blur) */
+  --shadow-tactile-sm: 0 3px 0 var(--border-line);
+  --shadow-tactile-md: 0 4px 0 var(--btn-border);
+  --shadow-tactile-lg: 0 5px 0 var(--border-line);
+  --shadow-tactile-card: 0 6px 0 var(--border-line);
+  --shadow-pressed: 0 1px 0 var(--btn-border);
+  
+  /* Elevation / Skew shadows (for phone and post-its) */
+  --shadow-sticky: 2px 5px 0 rgba(58, 38, 32, 0.18);
+  --shadow-phone: -14px 22px 0 -4px rgba(58, 38, 32, 0.12), -24px 34px 40px rgba(58, 38, 32, 0.35);
+
+  /* Transitions */
+  --transition-fast: 0.08s ease-in-out;
+  --transition-normal: 0.15s ease-in-out;
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* System Dark Theme fallback if no data-theme explicitly set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-primary: #2B1D18;
+    --bg-secondary: #1F1512;
+    --bg-card: #35241E;
+    --text-ink: #FFF1DC;
+    --text-mute: #CFB5A6;
+    --border-line: #54392F;
+    --bg-dot: rgba(255, 230, 200, 0.1);
+    --tag-bg: #4A3517;
+    --tag-text: #FFD64D;
+
+    --callout-tip-bg: #4A3517;
+    --callout-tip-text: #FFD64D;
+    --callout-tip-border: #735323;
+
+    --callout-warning-bg: #4A1A17;
+    --callout-warning-text: #FFB4AB;
+    --callout-warning-border: #802A24;
+
+    --callout-success-bg: #1B3D23;
+    --callout-success-text: #B4E8C2;
+    --callout-success-border: #2B6137;
+
+    --backdrop-overlay: rgba(0, 0, 0, 0.7);
+
+    --shadow-tactile-sm: 0 3px 0 #422B23;
+    --shadow-tactile-md: 0 4px 0 #1A110D;
+    --shadow-tactile-lg: 0 5px 0 #422B23;
+    --shadow-tactile-card: 0 6px 0 #422B23;
+    --shadow-sticky: 2px 5px 0 rgba(0, 0, 0, 0.45);
+    --shadow-phone: -14px 22px 0 -4px rgba(0, 0, 0, 0.4), -24px 34px 40px rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
+  }
+}
+
+/* Explicit Dark Theme via data-theme="dark" */
+:root[data-theme="dark"] {
+  --bg-primary: #2B1D18;
+  --bg-secondary: #1F1512;
+  --bg-card: #35241E;
+  --text-ink: #FFF1DC;
+  --text-mute: #CFB5A6;
+  --border-line: #54392F;
+  --bg-dot: rgba(255, 230, 200, 0.1);
+  --tag-bg: #4A3517;
+  --tag-text: #FFD64D;
+
+  --callout-tip-bg: #4A3517;
+  --callout-tip-text: #FFD64D;
+  --callout-tip-border: #735323;
+
+  --callout-warning-bg: #4A1A17;
+  --callout-warning-text: #FFB4AB;
+  --callout-warning-border: #802A24;
+
+  --callout-success-bg: #1B3D23;
+  --callout-success-text: #B4E8C2;
+  --callout-success-border: #2B6137;
+
+  --backdrop-overlay: rgba(0, 0, 0, 0.7);
+
+  --shadow-tactile-sm: 0 3px 0 #422B23;
+  --shadow-tactile-md: 0 4px 0 #1A110D;
+  --shadow-tactile-lg: 0 5px 0 #422B23;
+  --shadow-tactile-card: 0 6px 0 #422B23;
+  --shadow-sticky: 2px 5px 0 rgba(0, 0, 0, 0.45);
+  --shadow-phone: -14px 22px 0 -4px rgba(0, 0, 0, 0.4), -24px 34px 40px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+/* Explicit Light Theme via data-theme="light" */
+:root[data-theme="light"] {
+  --bg-primary: #FFF6DC;
+  --bg-secondary: #FFFDF9;
+  --bg-card: #FFFDF9;
+  --text-ink: #3A2620;
+  --text-mute: #8B6F63;
+  --border-line: #F2DFCB;
+  --bg-dot: rgba(139, 111, 99, 0.2);
+  --tag-bg: #FFF3C4;
+  --tag-text: #925C02;
+  color-scheme: light;
+}

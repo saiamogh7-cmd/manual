@@ -1,0 +1,60 @@
+.tm-accordion {
+  background-color: var(--bg-card);
+  border: var(--border-medium) solid var(--border-line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-lg);
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.tm-accordion-summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 18px;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--text-ink);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  align-items: center;
+  user-select: none;
+}
+
+.tm-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.tm-accordion-summary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: -2px;
+}
+
+.tm-accordion-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.tm-accordion-arrow {
+  color: var(--text-mute);
+  font-size: 14px;
+  transition: transform var(--transition-smooth);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.tm-accordion[open] .tm-accordion-arrow {
+  transform: rotate(180deg);
+}
+
+.tm-accordion-content {
+  padding: 0 18px 16px;
+  color: var(--text-ink);
+  line-height: 1.6;
+  border-top: 1px dashed var(--border-line);
+  padding-top: var(--space-3);
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TrackMent Guide</title>
+<style>
+:root{--bg:#fff6dc;--bg2:#fffdf9;--card:#fffdf9;--ink:#3a2620;--mute:#8b6f63;--line:#f2dfcb;--dot:rgba(139,111,99,.2);--tag:#fff3c4;--tagx:#925c02;--ok:#34a853;--no:#ea4335;--c:#ffd64d;--cb:#dca828;--cx:#3a2620;
+color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2b1d18;--bg2:#1f1512;--card:#35241e;--ink:#fff1dc;--mute:#cfb5a6;--line:#54392f;--dot:rgba(255,230,200,.1);--tag:#4a3517;--tagx:#ffd64d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2b1d18;--bg2:#1f1512;--card:#35241e;--ink:#fff1dc;--mute:#cfb5a6;--line:#54392f;--dot:rgba(255,230,200,.1);--tag:#4a3517;--tagx:#ffd64d;color-scheme:dark}
+html{scroll-padding-top:90px}*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font:16px/1.65 "Avenir Next","Nunito","Trebuchet MS",system-ui,sans-serif;background:radial-gradient(circle,var(--dot) 1.3px,transparent 1.4px) 0 0/22px 22px,linear-gradient(var(--bg),var(--bg2) 70%)}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:42px 0 26px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;margin-bottom:22px}
+.blob{width:40px;height:40px;border-radius:52% 48% 55% 45%;background:radial-gradient(circle at 35% 30%,#ffe373,#ffc436 60%,#e59500);box-shadow:0 4px 0 #c27a00,0 10px 14px rgba(120,70,0,.3)}
+h1{font-size:clamp(34px,6vw,54px);line-height:1.05;margin:0 0 14px;letter-spacing:-1.2px}
+.lead{font-size:18px;color:var(--mute);max-width:30em;margin:0 0 22px}
+.btn{font:inherit;font-weight:800;border:2px solid var(--cb);border-bottom-width:5px;background:var(--c);color:var(--cx);padding:10px 18px;border-radius:16px;cursor:pointer;transition:transform .08s,border-bottom-width .08s}
+.btn:active,.btn[aria-pressed=true],.tab[aria-selected=true]{transform:translateY(3px);border-bottom-width:2px}
+.btn:focus-visible,.tab:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #5b5bd6;outline-offset:2px}
+.stage{position:relative;display:grid;place-items:center;perspective:900px;min-height:430px}
+.phone{width:222px;height:420px;border-radius:36px;background:#24170f;padding:9px;transform:rotateY(var(--ry,-14deg)) rotateX(var(--rx,6deg));transition:transform .15s;box-shadow:-14px 22px 0 -4px rgba(58,38,32,.12),-24px 34px 40px rgba(58,38,32,.35),inset 0 0 0 2px #5a4132}
+.scr{height:100%;border-radius:28px;background:linear-gradient(#ffdf85,#ffeab3 35%,#fffdf9);padding:16px 13px;color:#3a2620;font-size:12px;overflow:hidden}
+.scr b{display:block;font-size:16px;margin-bottom:8px}
+.bar{height:11px;background:#fff;border-radius:9px;border:1.5px solid #f2dfcb;overflow:hidden;margin:4px 0 12px}.bar i{display:block;height:100%;width:62%;background:#ffc436;border-radius:9px}
+.mini{background:#fffdf9;border:1.5px solid #f2dfcb;border-radius:13px;padding:9px;margin-bottom:9px}
+.fk{display:block;text-align:center;background:#ffd64d;border:2px solid #dca828;border-bottom-width:4px;border-radius:13px;padding:8px;font-weight:800;margin-top:8px}
+.note{position:absolute;background:#fff3c4;color:#6b4300;font:700 13px/1.3 "Segoe Print","Bradley Hand",cursive,system-ui;padding:8px 11px;border-radius:4px 12px 4px 12px;box-shadow:2px 5px 0 rgba(58,38,32,.18);max-width:150px}
+.n1{left:-6px;top:70px;transform:rotate(-5deg)}.n2{right:-8px;top:170px;transform:rotate(4deg)}.n3{left:2px;bottom:30px;transform:rotate(-3deg)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;padding:10px 0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(6px)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px}
+.tab{flex:none;font:inherit;font-weight:800;color:var(--ink);background:var(--card);border:2px solid var(--line);border-bottom-width:5px;border-radius:16px;padding:9px 15px;cursor:pointer}
+.tab[aria-selected=true]{background:var(--c);border-color:var(--cb);color:var(--cx)}
+.head{display:flex;flex-wrap:wrap;gap:14px;align-items:end;justify-content:space-between;margin:22px 0 14px}
+.head h2{margin:0;font-size:30px;letter-spacing:-.6px}.head p{margin:2px 0 0;color:var(--mute)}
+.meter{min-width:230px}.meter small{font-weight:800;color:var(--tagx)}
+.track{height:16px;border-radius:10px;background:var(--tag);border:2px solid var(--line);overflow:hidden;margin-top:4px}
+.track i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,var(--c) 0 10px,color-mix(in srgb,var(--c) 80%,#fff) 10px 20px);transition:width .4s}
+ol{list-style:none;margin:0;padding:0;position:relative}
+ol::before{content:"";position:absolute;left:21px;top:20px;bottom:30px;border-left:3px dashed var(--line)}
+.step{display:flex;gap:14px;margin-bottom:12px;position:relative}
+.coin{flex:none;width:44px;height:44px;border-radius:50%;background:var(--card);border:3px solid var(--cb);box-shadow:0 4px 0 var(--cb);display:grid;place-items:center;font-weight:900;cursor:pointer;position:relative;color:var(--ink)}
+.coin input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0}
+.coin:has(input:checked){background:var(--ok);border-color:#1f7a37;box-shadow:0 4px 0 #1f7a37;color:#fff;transform:translateY(2px)}
+.coin:has(input:focus-visible){outline:3px solid #5b5bd6;outline-offset:2px}
+details{flex:1;background:var(--card);border:2px solid var(--line);border-radius:18px;box-shadow:0 5px 0 var(--line)}
+summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:800;display:flex;justify-content:space-between;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}summary::after{content:"▾";color:var(--mute);transition:transform .2s}details[open] summary::after{transform:rotate(180deg)}
+.in{padding:0 16px 14px}.in p{margin:0 0 10px}
+.fake{display:inline-block;background:var(--c);color:var(--cx);border:2px solid var(--cb);border-bottom-width:4px;border-radius:11px;padding:2px 10px;font-weight:800;font-size:14px}
+.tip{background:var(--tag);color:var(--tagx);border-radius:12px;padding:9px 12px;font-size:15px;font-weight:600}
+.tip::before{content:"Tip  ";font-weight:900}
+.cc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.box{background:var(--card);border:2px solid var(--line);border-top:8px solid var(--ok);border-radius:18px;padding:12px 18px 8px}
+.box.x{border-top-color:var(--no)}.box h3{margin:6px 0}.box ul{list-style:none;padding:0}
+.box li{padding:6px 0 6px 28px;position:relative;border-top:1px dashed var(--line)}
+.box li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:900}.x li::before{content:"✕";color:var(--no)}
+.faq{margin:30px 0}.faq input{width:100%;font:inherit;padding:12px 16px;border-radius:16px;border:2px solid var(--line);background:var(--card);color:var(--ink);margin:8px 0 14px}
+.faq details{margin-bottom:10px;flex:none}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 22px}
+.chip{background:var(--tag);color:var(--tagx);font-weight:800;font-size:14px;border-radius:999px;padding:4px 12px;border:1.5px solid var(--line)}
+footer{text-align:center;color:var(--mute);padding:20px 0 48px;font-size:14px}
+@media (max-width:760px){.hero{grid-template-columns:1fr;text-align:left}.cc{grid-template-columns:1fr}.stage{min-height:380px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div>
+    <div class="brand"><span class="blob"></span>TrackMent guide</div>
+    <h1>Learn TrackMent in five minutes.</h1>
+    <p class="lead">Pick your role, follow the steps, and tick them off as you go. Every step shows the exact button you’ll tap in the app.</p>
+    <button class="btn" id="go">Start with step one</button>
+  </div>
+  <div class="stage" id="stage" aria-hidden="true">
+    <div class="phone"><div class="scr"><b>Good morning, Asha</b>Team progress 62%<div class="bar"><i></i></div>
+      <div class="mini"><strong>👍 THUMBS UP</strong><br>Nice work on the login screen!</div>
+      <div class="mini">Recent submission<br><strong>Built login screen</strong></div><span class="fk">SUBMIT PROOF</span></div></div>
+    <div class="note n1">Your team’s progress</div><div class="note n2">Notes from your mentor</div><div class="note n3">Tap here to log your work</div>
+  </div>
+</header>
+<nav><div class="tabs" role="tablist" aria-label="Choose your role"></div></nav>
+<main id="view"></main>
+<section class="faq">
+  <h2>Quick answers</h2>
+  <div class="chips"><span class="chip">Proof files: 50 MB max</span><span class="chip">MP4 · MOV · MKV · PDF · DOCX · PPTX · JPG · PNG</span><span class="chip">Title: 200 characters</span><span class="chip">Description: 5,000</span><span class="chip">Up to 10 links</span><span class="chip">Mentor note: 500</span><span class="chip">2 votes decide a lead’s work</span></div>
+  <input id="q" type="search" placeholder="Search for a problem, like “locked” or “password”" aria-label="Search quick answers">
+  <div id="faq"></div>
+</section>
+</div>
+<footer>TrackMent · RV College of Engineering</footer>
+
+<script>
+var R={
+start:{n:"Start here",c:["#ffd64d","#dca828","#3a2620"],tag:"Everyone begins here. It takes about two minutes.",
+steps:[
+{t:"Sign up with your college Google account",b:"Sign up with RVCE Google Account",d:["Use your @rvce.edu.in account. Students look like name.branchyy@rvce.edu.in. Faculty look like name@rvce.edu.in, with no numbers."],tip:"Personal Gmail accounts will not work."},
+{t:"Complete your profile",b:"Save Profile",d:["Students: type the last three digits of your USN (the start is filled in for you), then pick branch, semester and section. Add skills and interests so team leads can find you.","Faculty: choose your department and enter your 4-digit faculty code."],tip:"The faculty code is permanent, so double-check it."},
+{t:"Set a password (optional)",b:"Set a password",d:["Open Edit Profile and choose Set a password. TrackMent asks you to confirm with Google first. Then enter a password of 8 or more characters."]},
+{t:"Forgot your password?",b:"Continue with Google",d:["Sign in with Google, then set a new password in Edit Profile."]}],
+can:["Sign in with any @rvce.edu.in account","Switch between student and faculty setup if the app guessed wrong","Log in with email and password after you set one"],
+cant:["Use a personal email","Change your Google email later","Change your faculty code after saving"]},
+student:{n:"Student",c:["#19a7a0","#0e7c77","#ffffff"],tag:"Find a team, log your work and keep your mentor updated.",
+steps:[
+{t:"Find or form a team",b:"Join or Create a Team",d:["Create: tap Become a Team Leader, fill in name, title, theme and gist, add members, then Create Team.","Browse: open Browse Recruiting Teams, search, then tap Request to Join. It changes to Requested while you wait.","Invitations: tap View Invitations, then Accept or Decline."],tip:"Add skills to your profile. Leads search by them."},
+{t:"Know your dashboard",b:"Dashboard",d:["You’ll see team progress, mentor feedback, recent submissions and the Submit Proof button.","A red Come Meet Me alert means your mentor wants to see you. Go during office hours, or ask your lead to book a slot."]},
+{t:"Submit your first contribution",b:"Submit Proof",d:["Add a title (up to 200 characters) and describe what you did (up to 5,000).","Attach a file (50 MB max) and add up to 10 links that start with http:// or https://.","Tap Submit Contribution and wait for the upload to finish."],tip:"Video too big? Record at 720p or share a link instead."},
+{t:"Check Team Info",b:"Team Info",d:["Here you’ll find your team code (TM-XXXXX), all members, your mentor and every note from them.","No mentor yet? Give your team code to your faculty so they can claim the team."]},
+{t:"Vote on your lead’s work",b:"Democratic Review",d:["Leads can’t approve their own work, so members vote. Open a Team Lead Submission, check the files and links, then choose Valid or Vote Invalid.","If you reject, give a helpful reason. At least 2 votes make the decision."]}],
+can:["Request to join any recruiting team","Submit as many contributions as you need","Vote on your team lead’s submissions","Leave a team (members only)"],
+cant:["Review or approve your own work","Leave while you are the Team Lead","Undo leaving: your submissions to that team are deleted","Upload files over 50 MB"]},
+lead:{n:"Team Lead",c:["#f4793b","#c4551d","#ffffff"],tag:"You get every student feature, plus the Lead Dashboard.",
+steps:[
+{t:"Recruit your team",b:"Find Members",d:["Invite: tap Find Members, search by name or USN, then tap Invite. It changes to Invited.","Approve: open Join Requests and tap Accept or Decline for each student."]},
+{t:"Review member work",b:"Review Work",d:["Open a pending item, check files and Submitted Links, then tap Mark Valid. To reject, tap Mark Invalid and write a reason."],tip:"You can’t review your own work. Your members vote on it."},
+{t:"Update project progress",b:"Update Progress",d:["Drag the slider (0 to 100%, in 5% steps), write a Milestone Note such as “Completed login screen”, then tap Save Progress. Every update stays in Progress History."]},
+{t:"Book a mentor meeting",b:"Book Meeting",d:["Pick a date and time, write the agenda, then tap Send Meeting Request. Your mentor confirms or suggests another time."],tip:"If it says Meeting Booking Locked, your team has no mentor yet. Share your Team Code with your faculty."},
+{t:"Hand over leadership (when needed)",b:"Make Team Lead",d:["Tap ⋮ next to a member and choose Make Team Lead. You stay lead until they accept.","If nobody has joined, Revert to Member deletes the team and returns you to being a student."]}],
+can:["Invite students and accept join requests","Validate member contributions","Update progress and book meetings","Hand leadership to another member"],
+cant:["Validate your own contributions","Leave the team without handing over leadership","Book a meeting before a mentor claims the team"]},
+mentor:{n:"Faculty Mentor",c:["#5b5bd6","#3e3ea8","#ffffff"],tag:"Guide your teams, answer meeting requests and keep attendance.",
+steps:[
+{t:"Claim your team",b:"Assign me as Mentor",d:["Tap Add Team, then search by team code (TM-XXXXX), leader USN, name or project. Tap View Team Info to look first, then Assign me as Mentor and Confirm."],tip:"Teams that already have a mentor show “Mentored by another faculty”."},
+{t:"Review the team",b:"View details",d:["See the lead and members, every contribution with its status, View proof for files, and the full feedback history."]},
+{t:"Send feedback",b:"Send Feedback",d:["Thumbs Up: quick praise with an optional note.","Feedback: up to 500 characters, visible to the whole team instantly.","Come Meet Me: an urgent summons. Add a venue like “Lab 3 at 2:30 PM”."]},
+{t:"Run the meeting queue",b:"Meeting Queue",d:["Confirm or Reject each Pending Request. Red Flags lists students with 2 or more absences in a row."]},
+{t:"Record the meeting",b:"Record Meeting in Ledger",d:["Tap Log Meeting, set the date, mark each student Present or Absent, add notes (decisions, homework), then Record Meeting in Ledger."]}],
+can:["Claim teams with their code","Send thumbs-ups, notes and Come Meet Me","Confirm or reject meeting requests","Keep attendance and notes in the ledger"],
+cant:["Claim a team another mentor already has","Change your faculty code","Validate a team lead’s own work (members vote)"]}};
+var F=[["Page says “Use your @rvce.edu.in email”","Only official RVCE accounts work. Sign in with your college Google account."],
+["“Wrong email or password”","You may not have set a password. Continue with Google, then set one in Edit Profile."],
+["Book Meeting is locked","Your team has no mentor yet. Give your team code to your faculty."],
+["My upload failed","Check the file type and keep it under 50 MB. For large videos, lower the quality or share a link."],
+["I can’t leave my team","Team Leads must hand over leadership first, using Make Team Lead."],
+["Session expired","Log in again and repeat what you were doing."],
+["Faculty code already in use","Every mentor’s 4-digit code is unique. Re-check the number you entered."],
+["How do I delete my account?","Edit Profile, then Danger Zone, then Delete Account. This cannot be undone."]];
+var keys=Object.keys(R),cur="start",done={};
+try{done=JSON.parse(localStorage.getItem("tm-done")||"{}")}catch(e){}
+function save(){try{localStorage.setItem("tm-done",JSON.stringify(done))}catch(e){}}
+function esc(s){return s.replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
+function tabs(){var h="";keys.forEach(function(k){h+='<button class="tab" role="tab" data-k="'+k+'" aria-selected="'+(k===cur)+'">'+R[k].n+"</button>"});document.querySelector(".tabs").innerHTML=h}
+function count(k){return R[k].steps.filter(function(s,i){return done[k+i]}).length}
+function render(){
+  var r=R[cur],c=r.c,rt=document.documentElement.style;
+  rt.setProperty("--c",c[0]);rt.setProperty("--cb",c[1]);rt.setProperty("--cx",c[2]);
+  var h='<div class="head"><div><h2>'+r.n+"</h2><p>"+r.tag+'</p></div><div class="meter"><small id="ml"></small><div class="track"><i id="mb"></i></div></div></div><ol>';
+  r.steps.forEach(function(s,i){
+    h+='<li class="step"><label class="coin"><input type="checkbox" data-i="'+i+'" aria-label="Mark step '+(i+1)+' done"'+(done[cur+i]?" checked":"")+"><span>"+(i+1)+'</span></label><details'+(i===0?" open":"")+"><summary>"+s.t+'</summary><div class="in"><p>Look for: <span class="fake">'+esc(s.b)+"</span></p>";
+    s.d.forEach(function(p){h+="<p>"+p+"</p>"});
+    if(s.tip)h+='<div class="tip">'+s.tip+"</div>";
+    h+="</div></details></li>"});
+  h+='</ol><div class="cc"><div class="box"><h3>You can</h3><ul>';
+  r.can.forEach(function(x){h+="<li>"+x+"</li>"});
+  h+='</ul></div><div class="box x"><h3>You can’t</h3><ul>';
+  r.cant.forEach(function(x){h+="<li>"+x+"</li>"});
+  h+="</ul></div></div>";
+  document.getElementById("view").innerHTML=h;meter();
+}
+function meter(){var n=count(cur),t=R[cur].steps.length;
+  document.getElementById("ml").textContent=n===t?"All done. You’re ready!":n+" of "+t+" steps done";
+  document.getElementById("mb").style.width=(n/t*100)+"%";
+  document.querySelectorAll("#view .coin span").forEach(function(s,i){s.textContent=done[cur+i]?"✓":i+1})}
+document.addEventListener("click",function(e){
+  var t=e.target.closest(".tab");if(t){cur=t.dataset.k;tabs();render();return}
+});
+document.getElementById("view").addEventListener("change",function(e){
+  var i=e.target.dataset.i;if(i===undefined)return;
+  if(e.target.checked)done[cur+i]=1;else delete done[cur+i];save();meter()});
+document.querySelector(".tabs").addEventListener("keydown",function(e){
+  var d=e.key==="ArrowRight"?1:e.key==="ArrowLeft"?-1:0;if(!d)return;
+  cur=keys[(keys.indexOf(cur)+d+keys.length)%keys.length];tabs();render();document.querySelector('.tab[aria-selected="true"]').focus()});
+document.getElementById("go").onclick=function(){document.querySelector("nav").scrollIntoView({behavior:"smooth"})};
+var st=document.getElementById("stage");
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches)st.parentNode.addEventListener("mousemove",function(e){
+  var b=st.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;
+  st.firstElementChild.style.setProperty("--ry",(x*30)+"deg");st.firstElementChild.style.setProperty("--rx",(-y*18)+"deg")});
+function faq(q){var h="";F.forEach(function(f){if((f[0]+f[1]).toLowerCase().indexOf(q)>-1)h+="<details><summary>"+f[0]+'</summary><div class="in"><p>'+f[1]+"</p></div></details>"});
+  document.getElementById("faq").innerHTML=h||'<div class="tip">Nothing matches. Try a shorter word, or ask your Team Lead or mentor.</div>'}
+document.getElementById("q").addEventListener("input",function(e){faq(e.target.value.toLowerCase().trim())});
+tabs();render();faq("");
+</script>
+</body>
+</html>

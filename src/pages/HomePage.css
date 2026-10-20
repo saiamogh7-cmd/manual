@@ -1,0 +1,476 @@
+/* ==========================================================================
+   Home Page Styles
+   Strictly adheres to tokens.css and mobile-first responsive architecture.
+   ========================================================================== */
+
+.home-container {
+  overflow-x: clip;
+}
+
+/* 1. Hero Section */
+.home-hero-section {
+  padding: clamp(32px, 6vw, 64px) 0 clamp(24px, 4vw, 48px);
+}
+
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .home-hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-10);
+  }
+}
+
+.home-hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.home-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.home-hero-title {
+  margin-bottom: var(--space-4);
+  letter-spacing: -1.2px;
+}
+
+.home-hero-subtext {
+  font-size: clamp(17px, 1.3vw, 19px);
+  color: var(--text-mute);
+  max-width: 32em;
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+
+.home-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.home-hero-stage-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4) 0;
+}
+
+/* Sticky notes positioning on hero phone */
+.home-hero-note-progress {
+  position: absolute;
+  left: -10px;
+  top: 60px;
+  z-index: 10;
+}
+
+.home-hero-note-mentor {
+  position: absolute;
+  right: -10px;
+  top: 170px;
+  z-index: 10;
+}
+
+.home-hero-note-submit {
+  position: absolute;
+  left: 5px;
+  bottom: 30px;
+  z-index: 10;
+}
+
+@media (max-width: 480px) {
+  .home-hero-note-progress {
+    left: -4px;
+    top: 30px;
+  }
+  .home-hero-note-mentor {
+    right: -4px;
+    top: 150px;
+  }
+  .home-hero-note-submit {
+    left: 0;
+    bottom: 20px;
+  }
+}
+
+/* 2. Trust Strip */
+.home-trust-strip {
+  padding: var(--space-6) 0;
+  margin: var(--space-6) 0 var(--space-12);
+  border-top: 1px dashed var(--border-line);
+  border-bottom: 1px dashed var(--border-line);
+}
+
+.home-trust-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.home-trust-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.home-trust-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-ink);
+  margin: 0;
+}
+
+.home-trust-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* 3. How It Works Section */
+.home-how-section {
+  padding: var(--space-12) 0;
+}
+
+.home-step-trail {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .home-step-trail {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+  }
+
+  /* Dashed trail line across desktop steps */
+  .home-step-trail::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 44px;
+    right: 44px;
+    height: 0;
+    border-top: 3px dashed var(--border-line);
+    z-index: 1;
+  }
+}
+
+.home-step-card {
+  position: relative;
+  z-index: 2;
+  background-color: var(--bg-card);
+  border: var(--border-medium) solid var(--border-line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-card);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.home-step-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.home-step-card h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.home-step-card p {
+  font-size: 14px;
+  color: var(--text-mute);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* 4. Role Cards Section */
+.home-roles-section {
+  padding: var(--space-12) 0;
+}
+
+.home-roles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 820px) {
+  .home-roles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.home-role-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.home-role-card h3 {
+  margin: var(--space-2) 0 var(--space-1);
+}
+
+.home-role-desc {
+  font-size: 14px;
+  color: var(--text-mute);
+  margin-bottom: var(--space-4);
+  line-height: 1.55;
+}
+
+.home-role-capabilities {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.home-role-capabilities li {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-ink);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  line-height: 1.45;
+}
+
+.home-role-check {
+  color: var(--color-status-success);
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.home-role-card .tm-btn {
+  margin-top: auto;
+}
+
+/* 5. Feature Showcase Section */
+.home-features-section {
+  padding: var(--space-12) 0;
+}
+
+.home-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 8vw, 84px);
+  margin-top: var(--space-8);
+}
+
+.home-feature-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+@media (min-width: 840px) {
+  .home-feature-row {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+  }
+
+  .home-feature-row.is-reversed {
+    direction: rtl;
+  }
+
+  .home-feature-row.is-reversed > * {
+    direction: ltr;
+  }
+}
+
+.home-feature-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.home-feature-content h3 {
+  font-size: clamp(22px, 2.5vw, 28px);
+  letter-spacing: -0.5px;
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.home-feature-content p {
+  color: var(--text-mute);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.home-feature-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.home-feature-bullets li {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-ink);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.home-feature-bullets li::before {
+  content: "✓";
+  color: var(--color-status-success);
+  font-weight: 900;
+}
+
+.home-feature-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* 6. Videos Preview Section */
+.home-videos-section {
+  padding: var(--space-12) 0;
+}
+
+.home-videos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .home-videos-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.home-video-card-thumb {
+  aspect-ratio: 16/9;
+  background-color: var(--bg-primary);
+  border: var(--border-medium) solid var(--border-line);
+  border-radius: var(--radius-lg);
+  display: grid;
+  place-items: center;
+  margin: var(--space-4) 0;
+  text-align: center;
+  padding: var(--space-4);
+}
+
+/* 7. Quick Facts Band */
+.home-facts-section {
+  padding: var(--space-12) 0;
+}
+
+.home-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-8);
+}
+
+.home-fact-card {
+  background-color: var(--bg-card);
+  border: var(--border-medium) solid var(--border-line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-card);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.home-fact-metric {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: var(--tag-text);
+  line-height: 1.1;
+  margin-bottom: var(--space-2);
+}
+
+.home-fact-label {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-ink);
+  margin-bottom: var(--space-1);
+}
+
+.home-fact-desc {
+  font-size: 13.5px;
+  color: var(--text-mute);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 8. FAQ Preview Section */
+.home-faq-section {
+  padding: var(--space-12) 0;
+}
+
+.home-faq-list {
+  max-width: 780px;
+  margin: var(--space-8) auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* 9. Final CTA Band */
+.home-final-cta-section {
+  padding: var(--space-12) 0 var(--space-16);
+}
+
+.home-final-cta-card {
+  background: var(--bg-card);
+  border: var(--border-thick) solid var(--btn-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-tactile-card);
+  padding: clamp(32px, 6vw, 56px) var(--space-6);
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.home-final-cta-card h2 {
+  font-size: clamp(28px, 5vw, 42px);
+  margin-bottom: var(--space-3);
+  letter-spacing: -1px;
+}
+
+.home-final-cta-card p {
+  font-size: clamp(16px, 1.2vw, 18px);
+  color: var(--text-mute);
+  max-width: 36em;
+  margin: 0 auto var(--space-6);
+}
+
+.home-final-cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}

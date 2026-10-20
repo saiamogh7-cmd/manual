@@ -1,0 +1,35 @@
+.tm-fakebutton {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: var(--color-brand-yellow);
+  color: var(--color-brand-brown);
+  border: var(--border-medium) solid var(--color-brand-gold-edge);
+  border-bottom-width: 4px;
+  border-radius: 11px;
+  padding: 3px 10px;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.3;
+  user-select: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.tm-fakebutton-student {
+  background-color: var(--color-role-student-fill);
+  color: var(--color-role-student-text);
+  border-color: var(--color-role-student-edge);
+}
+
+.tm-fakebutton-lead {
+  background-color: var(--color-role-lead-fill);
+  color: var(--color-role-lead-text);
+  border-color: var(--color-role-lead-edge);
+}
+
+.tm-fakebutton-mentor {
+  background-color: var(--color-role-mentor-fill);
+  color: var(--color-role-mentor-text);
+  border-color: var(--color-role-mentor-edge);
+}

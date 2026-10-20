@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Help Page Styles
+   Strictly token-driven with contained horizontal table scrolling.
+   ========================================================================== */
+
+.help-page {
+  padding: var(--space-10) 0 var(--space-16);
+  overflow-x: clip;
+}
+
+/* Search Bar */
+.help-search-container {
+  max-width: 680px;
+  margin: var(--space-6) auto var(--space-8);
+  position: relative;
+}
+
+.help-search-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.help-search-icon {
+  position: absolute;
+  left: 18px;
+  font-size: 18px;
+  color: var(--text-mute);
+  pointer-events: none;
+}
+
+.help-search-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 18px 14px 48px;
+  border-radius: var(--radius-xl);
+  border: var(--border-medium) solid var(--border-line);
+  background-color: var(--bg-card);
+  color: var(--text-ink);
+  box-shadow: var(--shadow-tactile-lg);
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.help-search-input:focus {
+  outline: none;
+  border-color: var(--color-brand-gold-edge);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.help-search-clear {
+  position: absolute;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--tag-bg);
+  border: 1px solid var(--border-line);
+  color: var(--text-ink);
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* Empty Search Results */
+.help-search-empty {
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+  background-color: var(--bg-card);
+  border: var(--border-medium) dashed var(--border-line);
+  border-radius: var(--radius-xl);
+  margin: var(--space-6) 0;
+}
+
+.help-search-empty-icon {
+  font-size: 36px;
+  margin-bottom: var(--space-2);
+}
+
+.help-search-empty h3 {
+  font-size: 19px;
+  margin-bottom: var(--space-1);
+}
+
+.help-search-empty p {
+  color: var(--text-mute);
+  font-size: 14px;
+  max-width: 42ch;
+  margin: 0 auto;
+}
+
+/* Limits Strip of Chips */
+.help-limits-section {
+  margin: var(--space-8) 0 var(--space-10);
+}
+
+.help-limits-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+/* Permissions Table Container (Safely horizontally scrollable on mobile) */
+.help-table-section {
+  margin: var(--space-12) 0;
+}
+
+.help-table-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--bg-card);
+  border: var(--border-medium) solid var(--border-line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-card);
+  box-sizing: border-box;
+  margin-top: var(--space-6);
+}
+
+.help-permissions-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.help-permissions-table th {
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 14px;
+  font-weight: 800;
+  padding: 14px 16px;
+  border-bottom: var(--border-medium) solid var(--border-line);
+  white-space: nowrap;
+}
+
+.help-permissions-table td {
+  padding: 12px 16px;
+  font-size: 14px;
+  border-bottom: 1px dashed var(--border-line);
+  color: var(--text-ink);
+}
+
+.help-permissions-table tr:last-child td {
+  border-bottom: none;
+}
+
+.help-perm-capability {
+  font-weight: 700;
+  max-width: 260px;
+}
+
+.help-perm-note {
+  font-size: 12px;
+  color: var(--text-mute);
+  font-weight: 500;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Yes / No Cells */
+.help-perm-yes {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-status-success);
+  font-weight: 800;
+  background-color: var(--callout-success-bg);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+
+.help-perm-no {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-mute);
+  font-weight: 700;
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+/* Troubleshooting & FAQ Lists */
+.help-qa-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 820px;
+  margin: var(--space-4) auto var(--space-10);
+}
+
+.help-still-stuck {
+  max-width: 820px;
+  margin: var(--space-10) auto 0;
+}

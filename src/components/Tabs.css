@@ -1,0 +1,63 @@
+.tm-tablist {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding: 2px 2px 8px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tm-tab {
+  flex: none;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--text-ink);
+  background-color: var(--bg-card);
+  border: var(--border-medium) solid var(--border-line);
+  border-bottom-width: var(--border-tactile-bottom);
+  border-radius: var(--radius-lg);
+  padding: 9px 16px;
+  min-height: 44px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: transform var(--transition-fast), border-bottom-width var(--transition-fast), background-color var(--transition-fast);
+}
+
+.tm-tab:hover:not([aria-selected="true"]) {
+  background-color: var(--tag-bg);
+}
+
+.tm-tab:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Selected Tab (Pressed tactile state) */
+.tm-tab[aria-selected="true"] {
+  background-color: var(--color-brand-yellow);
+  border-color: var(--color-brand-gold-edge);
+  color: var(--color-brand-brown);
+  transform: translateY(3px);
+  border-bottom-width: var(--border-tactile-pressed);
+}
+
+/* Role-themed active tab variations if provided */
+.tm-tab[data-role="student"][aria-selected="true"] {
+  background-color: var(--color-role-student-fill);
+  border-color: var(--color-role-student-edge);
+  color: var(--color-role-student-text);
+}
+
+.tm-tab[data-role="lead"][aria-selected="true"] {
+  background-color: var(--color-role-lead-fill);
+  border-color: var(--color-role-lead-edge);
+  color: var(--color-role-lead-text);
+}
+
+.tm-tab[data-role="mentor"][aria-selected="true"] {
+  background-color: var(--color-role-mentor-fill);
+  border-color: var(--color-role-mentor-edge);
+  color: var(--color-role-mentor-text);
+}

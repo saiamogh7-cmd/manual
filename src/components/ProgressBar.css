@@ -1,0 +1,84 @@
+.tm-progressbar-container {
+  width: 100%;
+}
+
+.tm-progressbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-1);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--tag-text);
+}
+
+.tm-progressbar-track {
+  width: 100%;
+  border-radius: var(--radius-md);
+  background-color: var(--tag-bg);
+  border: var(--border-medium) solid var(--border-line);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.tm-progressbar-track-sm {
+  height: 12px;
+}
+
+.tm-progressbar-track-md {
+  height: 18px;
+}
+
+.tm-progressbar-track-lg {
+  height: 24px;
+}
+
+.tm-progressbar-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-sm);
+  transition: width var(--transition-smooth);
+  will-change: width;
+  transform-origin: left;
+}
+
+/* Striped Fills using Tokens */
+.tm-progressbar-fill-default {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-brand-yellow) 0,
+    var(--color-brand-yellow) 10px,
+    var(--color-brand-cream) 10px,
+    var(--color-brand-cream) 20px
+  );
+}
+
+.tm-progressbar-fill-student {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-role-student-fill) 0,
+    var(--color-role-student-fill) 10px,
+    var(--color-role-student-edge) 10px,
+    var(--color-role-student-edge) 20px
+  );
+}
+
+.tm-progressbar-fill-lead {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-role-lead-fill) 0,
+    var(--color-role-lead-fill) 10px,
+    var(--color-role-lead-edge) 10px,
+    var(--color-role-lead-edge) 20px
+  );
+}
+
+.tm-progressbar-fill-mentor {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-role-mentor-fill) 0,
+    var(--color-role-mentor-fill) 10px,
+    var(--color-role-mentor-edge) 10px,
+    var(--color-role-mentor-edge) 20px
+  );
+}

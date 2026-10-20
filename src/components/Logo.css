@@ -1,0 +1,37 @@
+.trackment-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  color: var(--text-ink);
+  user-select: none;
+  text-decoration: none;
+}
+
+.trackment-logo-blob {
+  width: 38px;
+  height: 38px;
+  border-radius: 52% 48% 55% 45%;
+  background: radial-gradient(circle at 35% 30%, var(--color-blob-light), var(--color-blob-mid) 60%, var(--color-blob-dark));
+  box-shadow: 0 4px 0 var(--color-blob-edge), 0 10px 14px var(--color-blob-shadow);
+  flex-shrink: 0;
+  transition: transform var(--transition-normal);
+}
+
+.trackment-logo:hover .trackment-logo-blob {
+  transform: scale(1.06) rotate(6deg);
+}
+
+.trackment-logo-text {
+  font-weight: 900;
+  line-height: 1;
+}
+
+.trackment-logo-sub {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-mute);
+  margin-left: var(--space-1);
+}

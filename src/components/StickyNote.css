@@ -1,0 +1,21 @@
+.tm-stickynote {
+  display: inline-block;
+  background-color: var(--tag-bg);
+  color: var(--color-brand-brown);
+  font-family: var(--font-handwriting);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  padding: 10px 14px;
+  border-radius: 4px 14px 4px 14px;
+  box-shadow: var(--shadow-sticky);
+  border: 1px solid var(--border-line);
+  user-select: none;
+  max-width: 200px;
+  box-sizing: border-box;
+  transition: transform var(--transition-normal);
+}
+
+.tm-stickynote:hover {
+  transform: scale(1.04) rotate(0deg) !important;
+}

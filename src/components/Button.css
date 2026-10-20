@@ -1,0 +1,115 @@
+.tm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1.25;
+  padding: 10px 18px;
+  min-height: 44px;
+  border-radius: var(--radius-lg);
+  border-style: solid;
+  border-width: var(--border-medium);
+  border-bottom-width: var(--border-tactile-bottom);
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+  transition: transform var(--transition-fast), border-bottom-width var(--transition-fast), background-color var(--transition-fast), opacity var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.tm-btn:active:not(:disabled):not([aria-disabled="true"]) {
+  transform: translateY(3px);
+  border-bottom-width: var(--border-tactile-pressed);
+}
+
+.tm-btn:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.tm-btn-full {
+  width: 100%;
+}
+
+.tm-btn:disabled,
+.tm-btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary Variant (Brand Yellow + Gold Edge) */
+.tm-btn-primary {
+  background-color: var(--color-brand-yellow);
+  color: var(--color-brand-brown);
+  border-color: var(--color-brand-gold-edge);
+}
+.tm-btn-primary:hover:not(:disabled) {
+  filter: brightness(1.03);
+}
+
+/* Secondary Variant (Cream Card + Line Edge) */
+.tm-btn-secondary {
+  background-color: var(--bg-card);
+  color: var(--text-ink);
+  border-color: var(--border-line);
+}
+.tm-btn-secondary:hover:not(:disabled) {
+  background-color: var(--tag-bg);
+}
+
+/* Ghost Variant (Transparent with tactile line) */
+.tm-btn-ghost {
+  background-color: transparent;
+  color: var(--text-ink);
+  border-color: transparent;
+  border-bottom-width: var(--border-medium);
+}
+.tm-btn-ghost:hover:not(:disabled) {
+  background-color: var(--tag-bg);
+  border-color: var(--border-line);
+  border-bottom-width: var(--border-tactile-bottom);
+}
+.tm-btn-ghost:active:not(:disabled) {
+  transform: translateY(2px);
+  border-bottom-width: var(--border-medium);
+}
+
+/* Role Accents */
+.tm-btn-role-student {
+  background-color: var(--color-role-student-fill);
+  color: var(--color-role-student-text);
+  border-color: var(--color-role-student-edge);
+}
+.tm-btn-role-student:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.tm-btn-role-lead {
+  background-color: var(--color-role-lead-fill);
+  color: var(--color-role-lead-text);
+  border-color: var(--color-role-lead-edge);
+}
+.tm-btn-role-lead:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.tm-btn-role-mentor {
+  background-color: var(--color-role-mentor-fill);
+  color: var(--color-role-mentor-text);
+  border-color: var(--color-role-mentor-edge);
+}
+.tm-btn-role-mentor:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.tm-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

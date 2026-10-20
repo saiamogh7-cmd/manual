@@ -1,0 +1,61 @@
+.tm-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: inherit;
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.tm-tag-size-sm {
+  font-size: 11px;
+  padding: 3px 8px;
+}
+
+.tm-tag-size-md {
+  font-size: 13px;
+  padding: 4px 10px;
+}
+
+/* Variant styles using tokens */
+.tm-tag-variant-default {
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  border: var(--border-thin) solid var(--border-line);
+}
+
+.tm-tag-variant-outline {
+  background-color: transparent;
+  color: var(--text-ink);
+  border: var(--border-medium) solid var(--border-line);
+}
+
+.tm-tag-variant-student {
+  background-color: var(--color-role-student-fill);
+  color: var(--color-role-student-text);
+}
+
+.tm-tag-variant-lead {
+  background-color: var(--color-role-lead-fill);
+  color: var(--color-role-lead-text);
+}
+
+.tm-tag-variant-mentor {
+  background-color: var(--color-role-mentor-fill);
+  color: var(--color-role-mentor-text);
+}
+
+.tm-tag-variant-success {
+  background-color: var(--color-status-success);
+  color: #FFFFFF;
+}
+
+.tm-tag-variant-danger {
+  background-color: var(--color-status-danger);
+  color: #FFFFFF;
+}

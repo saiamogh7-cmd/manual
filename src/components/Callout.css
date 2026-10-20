@@ -1,0 +1,41 @@
+.tm-callout {
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  border-width: var(--border-thin);
+  border-style: solid;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  box-sizing: border-box;
+}
+
+.tm-callout-tip {
+  background-color: var(--callout-tip-bg);
+  color: var(--callout-tip-text);
+  border-color: var(--callout-tip-border);
+}
+
+.tm-callout-warning {
+  background-color: var(--callout-warning-bg);
+  color: var(--callout-warning-text);
+  border-color: var(--callout-warning-border);
+}
+
+.tm-callout-success {
+  background-color: var(--callout-success-bg);
+  color: var(--callout-success-text);
+  border-color: var(--callout-success-border);
+}
+
+.tm-callout-prefix {
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.tm-callout-body {
+  flex: 1;
+}

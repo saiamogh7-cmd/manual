@@ -1,0 +1,100 @@
+.guide-chooser-page {
+  padding: var(--space-10) 0 var(--space-16);
+}
+
+.guide-start-banner {
+  margin-bottom: var(--space-8);
+}
+
+.guide-start-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  align-items: center;
+  background-color: var(--bg-card);
+  border: var(--border-medium) solid var(--color-brand-gold-edge);
+  border-top: 8px solid var(--color-brand-yellow);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-card);
+  padding: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .guide-start-card {
+    grid-template-columns: 1.6fr 0.8fr;
+    gap: var(--space-8);
+  }
+}
+
+.guide-start-info h3 {
+  font-size: 24px;
+  margin: var(--space-2) 0 var(--space-2);
+}
+
+.guide-start-info p {
+  color: var(--text-mute);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.guide-start-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .guide-start-action {
+    align-items: flex-end;
+  }
+}
+
+.guide-roles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 820px) {
+  .guide-roles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.guide-role-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.guide-role-card h3 {
+  font-size: 22px;
+  margin: var(--space-2) 0 var(--space-2);
+}
+
+.guide-role-tagline {
+  color: var(--text-mute);
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: var(--space-4);
+  flex: 1;
+}
+
+.guide-card-progress {
+  margin: var(--space-3) 0 var(--space-4);
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  border: var(--border-thin) solid var(--border-line);
+}
+
+.guide-progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text-ink);
+  margin-bottom: 6px;
+}

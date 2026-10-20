@@ -1,0 +1,71 @@
+.tm-phone-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  perspective: 900px;
+  min-height: 440px;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.tm-phone-casing {
+  width: 226px;
+  height: 426px;
+  border-radius: var(--radius-phone);
+  background-color: var(--phone-bezel);
+  padding: 9px;
+  transform: rotateY(var(--ry, -14deg)) rotateX(var(--rx, 6deg));
+  transition: transform 0.15s ease-out;
+  box-shadow: var(--shadow-phone), inset 0 0 0 2px var(--phone-inner-border);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Gentle ambient tilt animation when idle */
+@keyframes tm-phone-gentle-tilt {
+  0% {
+    transform: rotateY(-14deg) rotateX(6deg);
+  }
+  50% {
+    transform: rotateY(-10deg) rotateX(3deg);
+  }
+  100% {
+    transform: rotateY(-14deg) rotateX(6deg);
+  }
+}
+
+.tm-phone-casing.tm-phone-idle-anim {
+  animation: tm-phone-gentle-tilt 6s ease-in-out infinite;
+}
+
+.tm-phone-screen {
+  height: 100%;
+  border-radius: var(--radius-2xl);
+  background: var(--phone-screen-bg);
+  padding: 16px 13px;
+  color: var(--phone-screen-text);
+  font-size: 13px;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.tm-phone-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tm-phone-decorations > * {
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tm-phone-casing {
+    animation: none !important;
+    transform: rotateY(-12deg) rotateX(4deg) !important;
+    transition: none !important;
+  }
+}

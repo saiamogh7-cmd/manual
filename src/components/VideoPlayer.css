@@ -1,0 +1,175 @@
+.tm-video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: var(--border-medium) solid var(--border-line);
+  box-shadow: var(--shadow-tactile-card);
+  background-color: var(--bg-card);
+  box-sizing: border-box;
+}
+
+.tm-video-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Poster & Facade */
+.tm-video-poster-button {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: inherit;
+}
+
+.tm-video-poster-button:focus-visible {
+  outline: 4px solid var(--focus-ring);
+  outline-offset: -4px;
+}
+
+.tm-video-poster-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.tm-video-poster-button:hover .tm-video-poster-img {
+  transform: scale(1.02);
+}
+
+.tm-video-poster-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 30%, rgba(36, 23, 15, 0.55) 100%);
+  transition: background var(--transition-normal);
+}
+
+.tm-video-poster-button:hover .tm-video-poster-overlay {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 30%, rgba(36, 23, 15, 0.45) 100%);
+}
+
+/* Chunky 3D Play Button */
+.tm-video-play-btn {
+  position: relative;
+  z-index: 2;
+  width: clamp(64px, 8vw, 80px);
+  height: clamp(64px, 8vw, 80px);
+  border-radius: 50%;
+  background-color: var(--color-brand-yellow);
+  border: var(--border-thick) solid var(--color-brand-gold-edge);
+  border-bottom-width: 6px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  display: grid;
+  place-items: center;
+  transition: transform var(--transition-fast), border-bottom-width var(--transition-fast), filter var(--transition-fast);
+}
+
+.tm-video-play-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 13px 0 13px 22px;
+  border-color: transparent transparent transparent var(--color-brand-brown);
+  margin-left: 5px;
+}
+
+.tm-video-poster-button:hover .tm-video-play-btn {
+  transform: scale(1.06);
+  filter: brightness(1.05);
+}
+
+.tm-video-poster-button:active .tm-video-play-btn {
+  transform: translateY(3px) scale(1);
+  border-bottom-width: 2px;
+}
+
+/* Role Accent Play Buttons */
+.tm-video-play-btn-student {
+  background-color: var(--color-role-student-fill);
+  border-color: var(--color-role-student-edge);
+}
+.tm-video-play-btn-student .tm-video-play-triangle {
+  border-color: transparent transparent transparent #FFFFFF;
+}
+
+.tm-video-play-btn-lead {
+  background-color: var(--color-role-lead-fill);
+  border-color: var(--color-role-lead-edge);
+}
+.tm-video-play-btn-lead .tm-video-play-triangle {
+  border-color: transparent transparent transparent #FFFFFF;
+}
+
+.tm-video-play-btn-mentor {
+  background-color: var(--color-role-mentor-fill);
+  border-color: var(--color-role-mentor-edge);
+}
+.tm-video-play-btn-mentor .tm-video-play-triangle {
+  border-color: transparent transparent transparent #FFFFFF;
+}
+
+/* Coming Soon Fallback Poster */
+.tm-video-coming-soon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  text-align: center;
+  background: 
+    radial-gradient(circle, var(--bg-dot) 1.3px, transparent 1.4px) 0 0 / 20px 20px,
+    linear-gradient(var(--bg-primary), var(--bg-secondary));
+}
+
+.tm-video-coming-soon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.tm-video-coming-soon-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-lg);
+  background-color: var(--tag-bg);
+  border: var(--border-medium) solid var(--border-line);
+  border-bottom-width: var(--border-tactile-bottom);
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  margin-bottom: var(--space-2);
+}
+
+.tm-video-coming-soon-title {
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 800;
+  color: var(--text-ink);
+  margin: 0 0 var(--space-1);
+}
+
+.tm-video-coming-soon-subtitle {
+  font-size: 14px;
+  color: var(--text-mute);
+  max-width: 38ch;
+  margin: 0;
+  line-height: 1.5;
+}

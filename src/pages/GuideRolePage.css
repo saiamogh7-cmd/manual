@@ -1,0 +1,255 @@
+/* ==========================================================================
+   Guide Role Page Styles
+   Inherits look and feel from /reference/guide.html with full CSS variable support.
+   ========================================================================== */
+
+.guide-role-page {
+  padding: var(--space-8) 0 var(--space-16);
+}
+
+.guide-role-nav-back {
+  margin-bottom: var(--space-4);
+}
+
+.guide-role-nav-back a {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-mute);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.guide-role-nav-back a:hover {
+  color: var(--text-ink);
+  text-decoration: underline;
+}
+
+/* Role Header */
+.guide-role-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: var(--space-6) 0 var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 2px dashed var(--border-line);
+}
+
+.guide-role-heading-text h1 {
+  font-size: clamp(30px, 5vw, 42px);
+  margin: 0 0 var(--space-1);
+}
+
+.guide-role-heading-text p {
+  color: var(--text-mute);
+  font-size: 16px;
+  margin: 0;
+}
+
+.guide-role-meter {
+  min-width: 240px;
+  flex-shrink: 0;
+}
+
+.guide-role-meter-label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--tag-text);
+  margin-bottom: 4px;
+}
+
+/* Celebratory Banner */
+.guide-celebration-banner {
+  background: var(--bg-card);
+  border: var(--border-medium) solid var(--color-status-success);
+  border-left-width: 8px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-card);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  animation: tm-celebrate-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes tm-celebrate-in {
+  from { opacity: 0; transform: translateY(-10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.guide-celebration-coin-anim {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-status-success);
+  color: #FFFFFF;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 900;
+  box-shadow: 0 4px 0 var(--color-status-success-edge);
+  flex-shrink: 0;
+  animation: tm-coin-celebrate 2s infinite ease-in-out;
+}
+
+@keyframes tm-coin-celebrate {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.15) rotate(12deg); }
+  50% { transform: scale(1.15) rotate(-12deg); }
+  75% { transform: scale(1.08) rotate(6deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guide-celebration-coin-anim {
+    animation: none !important;
+  }
+}
+
+/* Vertical Dashed Trail of Steps */
+.guide-steps-list {
+  list-style: none;
+  margin: var(--space-6) 0 var(--space-10);
+  padding: 0;
+  position: relative;
+}
+
+.guide-steps-list::before {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 22px;
+  bottom: 24px;
+  border-left: 3px dashed var(--border-line);
+  z-index: 1;
+}
+
+.guide-step-row {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+  position: relative;
+  z-index: 2;
+}
+
+.guide-step-coin-wrap {
+  flex-shrink: 0;
+}
+
+.guide-step-accordion {
+  flex: 1;
+}
+
+.guide-step-lookfor {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--text-ink);
+}
+
+.guide-step-paragraphs p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-ink);
+  margin-bottom: var(--space-2);
+}
+
+.guide-step-tip-wrap {
+  margin-top: var(--space-3);
+}
+
+/* Bottom "You Can" and "You Can't" Boxes */
+.guide-boxes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  margin: var(--space-10) 0;
+}
+
+@media (min-width: 768px) {
+  .guide-boxes-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.guide-do-box {
+  background-color: var(--bg-card);
+  border: var(--border-medium) solid var(--border-line);
+  border-top: 8px solid var(--color-status-success);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-card);
+  padding: var(--space-5);
+}
+
+.guide-dont-box {
+  background-color: var(--bg-card);
+  border: var(--border-medium) solid var(--border-line);
+  border-top: 8px solid var(--color-status-danger);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-card);
+  padding: var(--space-5);
+}
+
+.guide-box-title {
+  margin: 0 0 var(--space-3);
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.guide-box-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guide-box-list li {
+  padding: var(--space-2) 0 var(--space-2) 26px;
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  border-top: 1px dashed var(--border-line);
+}
+
+.guide-box-list li:first-child {
+  border-top: none;
+}
+
+.guide-do-box li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-status-success);
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.guide-dont-box li::before {
+  content: "✕";
+  position: absolute;
+  left: 0;
+  color: var(--color-status-danger);
+  font-weight: 900;
+  font-size: 15px;
+}
+
+/* Previous / Next Role Navigation Bar */
+.guide-role-bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6) 0;
+  margin-top: var(--space-8);
+  border-top: 2px dashed var(--border-line);
+  flex-wrap: wrap;
+}

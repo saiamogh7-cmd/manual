@@ -1,0 +1,46 @@
+.tm-card {
+  background-color: var(--bg-card);
+  border: var(--border-medium) solid var(--border-line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-card);
+  box-sizing: border-box;
+  color: var(--text-ink);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.tm-card-pad-sm {
+  padding: var(--space-3);
+}
+
+.tm-card-pad-md {
+  padding: var(--space-5);
+}
+
+.tm-card-pad-lg {
+  padding: var(--space-8);
+}
+
+.tm-card-pad-none {
+  padding: 0;
+}
+
+/* Optional Role Accent Top Border */
+.tm-card-accent-student {
+  border-top: 8px solid var(--color-role-student-fill);
+}
+
+.tm-card-accent-lead {
+  border-top: 8px solid var(--color-role-lead-fill);
+}
+
+.tm-card-accent-mentor {
+  border-top: 8px solid var(--color-role-mentor-fill);
+}
+
+.tm-card-accent-success {
+  border-top: 8px solid var(--color-status-success);
+}
+
+.tm-card-accent-danger {
+  border-top: 8px solid var(--color-status-danger);
+}
