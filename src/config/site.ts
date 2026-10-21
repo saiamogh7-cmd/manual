@@ -45,5 +45,5 @@ export const siteConfig: SiteConfig = {
     student: '',
     mentor: '',
   },
-  contactEmail: 'trackment@rvce.edu.in',
+  contactEmail: 'saiamoghrv.ci25@rvce.edu.in',
 };

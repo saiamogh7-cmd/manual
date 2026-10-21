@@ -119,7 +119,7 @@ export const siteConfig: SiteConfig = {
     student: 'YOUR_STUDENT_YOUTUBE_ID', // e.g. "M7lc1UVf-VE"
     mentor: 'YOUR_MENTOR_YOUTUBE_ID',   // e.g. "dQw4w9WgXcQ"
   },
-  contactEmail: 'trackment@rvce.edu.in', // Footer and Help support email
+  contactEmail: 'saiamoghrv.ci25@rvce.edu.in', // Footer and Help support email
 };
 ```
 
